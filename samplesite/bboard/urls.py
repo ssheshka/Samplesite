@@ -1,6 +1,13 @@
 from django.urls import path
-from .views import index
+# from .views import index, by_rubric
+# urlpatterns = [
+#     path('<int:rubric_id>/', by_rubric, name='by_rubric'),
+#     path('index/main/', index, name='index'),
+# ]
 
+from .views import index, by_rubric, BbCreateView
 urlpatterns = [
-path('', index),
+    path('add/', BbCreateView.as_view(), name='add'),
+    path('<int:rubric_id>/', by_rubric, name='by_rubric'),
+    path('index/main/', index, name='index'),
 ]
